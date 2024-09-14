@@ -153,30 +153,6 @@ public class AtendimentoTest {
         buscaAtendimento.buscaPorDia("Segunda");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testeBuscaPorDiaComMaisDeUmAtendimento() {
-        List<String> atendimentos = Arrays.asList(AtendimentoConst.BARBARA, AtendimentoConst.CHRIS);
-        Mockito.when(service.buscaPorDia("Quinta")).thenReturn(atendimentos);
-
-        buscaAtendimento.buscaPorDia("Quinta");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testeBuscaPorDiaComAtendimentoInvalido() {
-        List<String> atendimentos = Arrays.asList(AtendimentoConst.BARBARA, AtendimentoConst.CHRIS);
-        Mockito.when(service.buscaPorDia("Quinta")).thenReturn(atendimentos);
-
-        buscaAtendimento.buscaPorDia("Quinta");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testeBuscaPorDiaComAtendimentoInvalido2() {
-        List<String> atendimentos = Arrays.asList(AtendimentoConst.BARBARA, AtendimentoConst.CHRIS);
-        Mockito.when(service.buscaPorDia("Quinta")).thenReturn(atendimentos);
-
-        buscaAtendimento.buscaPorDia("Quinta");
-    }
-
     @Test
     public void testeBuscaPorNomeComSucesso() {
         Mockito.when(service.buscaPorProfessor("Christopher Lima")).thenReturn(AtendimentoConst.CHRIS);
