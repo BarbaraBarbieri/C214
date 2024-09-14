@@ -280,4 +280,11 @@ public class AtendimentoTest {
 
         buscaAtendimento.buscaPorPeriodo("Vespertino");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testeBuscaPorSalaNaoEncontradaComFalha() {
+        Mockito.when(service.buscaPorSala(30)).thenThrow(new IllegalArgumentException("Sala não encontrada"));
+
+        buscaAtendimento.buscaPorSala(30);
+    }
 }
