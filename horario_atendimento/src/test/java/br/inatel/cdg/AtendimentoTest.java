@@ -265,4 +265,19 @@ public class AtendimentoTest {
 
         buscaAtendimento.buscaPorProfessor("Phyll Lima");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testeBuscaPorPredioNaoEncontradoComFalha() {
+        Mockito.when(service.buscaPorPredio(7)).thenThrow(new IllegalArgumentException("Predio não encontrado"));
+
+        buscaAtendimento.buscaPorPredio(7);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testeBuscaPorPeriodoNaoEncontradoComFalha() {
+        Mockito.when(service.buscaPorPeriodo("Vespertino"))
+                .thenThrow(new IllegalArgumentException("Periodo não encontrado"));
+
+        buscaAtendimento.buscaPorPeriodo("Vespertino");
+    }
 }
